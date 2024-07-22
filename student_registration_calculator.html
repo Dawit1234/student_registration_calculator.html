@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration Form with Calculator</title>
+    <style>
+        /* Setting the background color to lime */
+        body {
+            background-color: #00ff00; /* Lime color */
+        }
+
+        /* Styling for the calculator section (red-orange color) */
+        .calculator-section {
+            background-color: #ff4500; /* Red-Orange color */
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Title for the form -->
+    <h1>Student Registration Form with Calculator</h1>
+    
+    <!-- Form for student registration -->
+    <form action="#" method="post">
+
+        <!-- Student information fields -->
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required><br><br>
+        
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required min="1"><br><br>
+
+        <label for="gender">Gender:</label>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br><br>
+        
+        <label for="state">State:</label>
+        <select id="state" name="state">
+            <!-- List of states here -->
+        </select><br><br>
+
+        <label for="major">Major:</label>
+        <input type="checkbox" id="major1" name="major" value="Computer Science">
+        <label for="major1">Computer Science</label>
+        <input type="checkbox" id="major2" name="major" value="Computer Engineering">
+        <label for="major2">Computer Engineering</label>
+        <!-- Other majors checkboxes here -->
+
+        <br><br>
+
+        <!-- Calculator Section with red-orange color -->
+        <div class="calculator-section">
+            <label for="quantity">Quantity of Candles:</label>
+            <input type="number" id="quantity" name="quantity" required><br><br>
+            
+            <!-- Button to calculate total -->
+            <button type="button" onclick="calculateTotal()">Calculate Total</button><br><br>
+
+            <!-- Display area for the total -->
+            <p>Total Cost: $<span id="totalAmount">0</span></p>
+        </div>
+        
+        <!-- Submit button for the form -->
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        // Function to calculate total cost based on the quantity of candles
+        function calculateTotal() {
+            // Retrieve the quantity input value
+            var quantity = parseInt(document.getElementById('quantity').value);
+
+            // Check if quantity is a valid number
+            if (isNaN(quantity) || quantity < 0) {
+                quantity = 0;
+            }
+
+            // Set the price per candle
+            var pricePerCandle = 5; // Assuming each candle costs $5
+
+            // Calculate the total cost
+            var total = quantity * pricePerCandle;
+
+            // Display the total cost in the form
+            document.getElementById('totalAmount').textContent = total;
+        }
+    </script>
+
+    <footer>
+        <p>&copy; 2024 Student Registration Form</p>
+    </footer>
+</body>
+</html>
